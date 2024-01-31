@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AdvancedRecyclerView</string>
+    <string name="dummy_text">Hi, this is the dummy text here which is used to check the
+    definiteness of the layout designed. Such texts are essential for various purposes
+    during software development</string>
+
+
+</resources>
