@@ -41,7 +41,6 @@ public class TimelineAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 view = LayoutInflater.from(mContext).inflate(R.layout.item_post_video,parent,false);
                 return new PostVideoViewHolder(view);
 
-
             default:
                 try {
                     throw new IllegalAccessException();
@@ -54,9 +53,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
-
         holder.setData(mdata.get(position));
-
     }
 
 
@@ -67,7 +64,6 @@ public class TimelineAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemCount() {
-
         if (mdata!=null){
             return mdata.size();
         }

@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingBottom="15dp">
 
     <ImageView
+        android:contentDescription="@string/app_name"
         android:id="@+id/line"
         android:layout_width="1dp"
         android:layout_height="0dp"
@@ -24,23 +25,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="22:10"
+        android:text="@string/_22_10"
         app:layout_constraintEnd_toEndOf="@+id/line"
         app:layout_constraintStart_toStartOf="@+id/line"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_editor_absoluteY="56dp" />
 
-    <ImageView
-        android:id="@+id/post_video_img"
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        app:cardCornerRadius="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="4dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@id/line"
         app:layout_constraintStart_toStartOf="@id/line"
-        app:layout_constraintTop_toBottomOf="@id/post_video_time"
-        android:src="@drawable/sooj"/>
+        app:layout_constraintTop_toBottomOf="@id/post_video_time">
+
+
+        <ImageView
+            android:id="@+id/post_video_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/sooj" />
+
+
+    </androidx.cardview.widget.CardView>
+
 
     <ImageView
+        android:contentDescription="@string/app_name"
         android:id="@+id/post_video_placeholder"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -52,7 +72,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/post_video_img"
+        app:layout_constraintStart_toEndOf="@id/cardView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -60,12 +80,73 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/post_video_placeholder"
         app:layout_constraintStart_toStartOf="@+id/post_video_placeholder"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.497"
         app:srcCompat="@drawable/play" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/post_video_placeholder"
+        app:layout_constraintTop_toBottomOf="@+id/post_video_placeholder">
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/heart_icon" />
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/comment_icon" />
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/share_icon" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/post_video_placeholder"
+        app:layout_constraintTop_toBottomOf="@+id/post_video_placeholder">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_12_replies"
+            android:textColor="#999da4"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#999da4"
+            android:text="@string/_15_likes"/>
+
+    </LinearLayout>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

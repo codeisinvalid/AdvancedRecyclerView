@@ -5,11 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.advancedrecyclerview.Adapter.TimelineAdapter;
 import com.example.advancedrecyclerview.R;
 import com.example.advancedrecyclerview.model.TimelineItem;
-import com.example.advancedrecyclerview.utils.Constant;
 import com.example.advancedrecyclerview.utils.DataSource;
 
 import java.util.List;
@@ -23,12 +24,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setFullScreen();
         setContentView(R.layout.activity_main);
 
         iniRV();
         getListData();
+        setUpAdapter();
 
+    }
 
+    private void setUpAdapter() {
+        adapter = new TimelineAdapter(this, mData);
+        timelineRv.setAdapter(adapter);
     }
 
     private void getListData() {
@@ -40,7 +47,11 @@ public class MainActivity extends AppCompatActivity {
         timelineRv = findViewById(R.id.timeline_rv);
         timelineRv.setLayoutManager(new LinearLayoutManager(this));
 
+    }
 
-
+    private void setFullScreen(){
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 }

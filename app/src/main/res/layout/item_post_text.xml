@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
+    android:paddingBottom="15dp"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
+        android:contentDescription="@string/app_name"
         app:srcCompat="@color/gray_line_color" />
 
     <TextView
@@ -24,21 +25,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="22:10"
+        android:text="@string/_22_10"
         app:layout_constraintEnd_toEndOf="@+id/line"
         app:layout_constraintStart_toStartOf="@+id/line"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_editor_absoluteY="56dp" />
 
-    <ImageView
-        android:id="@+id/post_text_img"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        app:cardCornerRadius="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="4dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@id/line"
         app:layout_constraintStart_toStartOf="@id/line"
-        app:layout_constraintTop_toBottomOf="@id/post_video_time"
-        android:src="@drawable/sooj"/>
+        app:layout_constraintTop_toBottomOf="@id/post_video_time">
+
+
+        <ImageView
+            android:id="@+id/post_text_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/sooj" />
+
+    </androidx.cardview.widget.CardView>
 
 
     <TextView
@@ -46,7 +61,7 @@
         android:layout_height="wrap_content"
         android:lineSpacingExtra="8sp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
@@ -54,10 +69,65 @@
         android:background="@drawable/txt_card_bg"
         android:text="@string/dummy_text"
         android:id="@+id/post_text_context"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/post_text_img"
+        app:layout_constraintStart_toEndOf="@id/cardView"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/post_text_context"
+        app:layout_constraintTop_toBottomOf="@+id/post_text_context">
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/heart_icon" />
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/comment_icon" />
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/share_icon" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/post_text_context"
+        app:layout_constraintTop_toBottomOf="@+id/post_text_context">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_12_replies"
+            android:textColor="#999da4"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#999da4"
+            android:text="@string/_15_likes"/>
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
